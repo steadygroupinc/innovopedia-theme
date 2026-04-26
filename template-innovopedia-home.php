@@ -125,9 +125,19 @@ get_header(); ?>
 </main>
 
 <style>
+:root {
+    --innovopedia-blue: #5000ff;
+    --innovopedia-blue-light: #7033ff;
+}
 .innovopedia-master-home {
     background: #fff;
     padding-bottom: 80px;
+}
+.rb-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 /* TRENDING BAR */
@@ -136,7 +146,7 @@ get_header(); ?>
     color: #fff;
     padding: 12px 0;
     font-size: 13px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 .trending-flex {
     display: flex;
@@ -144,13 +154,13 @@ get_header(); ?>
     gap: 30px;
 }
 .trending-label {
-    background: var(--g-color);
-    color: #000;
+    background: var(--innovopedia-blue);
+    color: #fff;
     font-weight: 900;
-    padding: 2px 10px;
+    padding: 4px 12px;
     border-radius: var(--round-3);
     font-size: 11px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     flex-shrink: 0;
 }
 .trending-list {
@@ -164,14 +174,14 @@ get_header(); ?>
     text-decoration: none;
     font-weight: 600;
     opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: 0.3s;
 }
-.trending-item:hover { opacity: 1; color: var(--g-color); }
+.trending-item:hover { opacity: 1; color: var(--innovopedia-blue); }
 
 /* MASTER HERO GRID */
 .hero-master-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1.2fr;
     gap: 30px;
     margin-bottom: 60px;
 }
@@ -179,33 +189,36 @@ get_header(); ?>
     position: relative;
     border-radius: var(--round-7);
     overflow: hidden;
-    height: 600px;
+    height: 650px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 .hero-image { width: 100%; height: 100%; }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
-.hero-wrap:hover .hero-image img { transform: scale(1.05); }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+.hero-wrap:hover .hero-image img { transform: scale(1.04); }
 .hero-overlay {
     position: absolute;
-    bottom: 0; left: 0; right: 0; height: 80%;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+    bottom: 0; left: 0; right: 0; height: 85%;
+    background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
 }
 .hero-content {
     position: absolute;
-    bottom: 40px; left: 40px; right: 40px;
+    bottom: 50px; left: 50px; right: 50px;
     color: #fff; z-index: 2;
 }
 .hero-badge {
-    background: var(--g-color);
-    padding: 5px 12px; font-size: 11px; font-weight: 800;
-    border-radius: var(--round-3); margin-bottom: 20px; display: inline-block; color: #000;
+    background: var(--innovopedia-blue);
+    padding: 6px 14px; font-size: 11px; font-weight: 800;
+    border-radius: var(--round-3); margin-bottom: 25px; display: inline-block; color: #fff;
+    text-transform: uppercase; letter-spacing: 1px;
 }
 .hero-title {
-    font-family: var(--h1-family); font-size: 52px; font-weight: 900;
-    line-height: 1.1; margin-bottom: 20px;
+    font-family: var(--h1-family); font-size: 62px; font-weight: 900;
+    line-height: 1.05; margin-bottom: 25px; letter-spacing: -1px;
 }
-.hero-title a { color: #fff; text-decoration: none; }
-.hero-excerpt { font-size: 17px; color: #ccc; max-width: 550px; margin-bottom: 25px; line-height: 1.6; }
-.hero-meta { font-size: 13px; font-weight: 600; color: #aaa; }
+.hero-title a { color: #fff; text-decoration: none; transition: 0.3s; }
+.hero-title a:hover { color: var(--innovopedia-blue); }
+.hero-excerpt { font-size: 19px; color: #ddd; max-width: 600px; margin-bottom: 30px; line-height: 1.6; }
+.hero-meta { font-size: 13px; font-weight: 600; color: #bbb; display: flex; gap: 20px; }
 
 .hero-side-stories {
     display: flex;
@@ -213,110 +226,121 @@ get_header(); ?>
     gap: 30px;
 }
 .side-story-item {
-    background: #f8f9fa;
+    background: #000;
     border-radius: var(--round-7);
     overflow: hidden;
     height: calc(50% - 15px);
     position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 .side-thumb { width: 100%; height: 100%; }
-.side-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: 0.3s; }
-.side-story-item:hover .side-thumb img { filter: brightness(0.9); transform: scale(1.03); }
+.side-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 0.4s; }
+.side-story-item:hover .side-thumb img { filter: brightness(0.8); transform: scale(1.05); }
 .side-info {
     position: absolute;
-    bottom: 20px; left: 25px; right: 25px;
+    bottom: 30px; left: 30px; right: 30px;
     z-index: 2;
 }
 .side-cat a {
-    color: var(--g-color);
+    color: var(--innovopedia-blue);
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 .side-title {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 800;
     line-height: 1.2;
-    margin-top: 5px;
 }
 .side-title a { color: #fff; text-decoration: none; }
 
 .home-briefing-bar {
-    background: #f8f9fa;
-    padding: 30px 0;
-    border-bottom: 1px solid var(--flex-gray-15);
+    background: #fcfcfc;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     margin-bottom: 60px;
 }
 
 .grid-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 60px;
+    gap: 80px;
     margin-bottom: 80px;
 }
 .section-label {
     font-family: var(--h2-family);
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 2px solid #000;
-    margin-bottom: 40px;
-    padding-bottom: 10px;
+    letter-spacing: 3px;
+    border-bottom: 3px solid #000;
+    margin-bottom: 45px;
+    padding-bottom: 15px;
 }
 .section-label span {
     background: #000;
     color: #fff;
-    padding: 10px 15px;
+    padding: 12px 20px;
 }
 
 .latest-feed {
     display: grid;
-    gap: 30px;
+    gap: 40px;
 }
 .feed-item {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--flex-gray-15);
+    padding-bottom: 40px;
+    border-bottom: 1px solid #f0f0f0;
 }
 .item-thumb {
-    width: 120px;
-    height: 80px;
+    width: 180px;
+    height: 120px;
     flex-shrink: 0;
     border-radius: var(--round-5);
     overflow: hidden;
 }
-.item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.item-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+.feed-item:hover .item-thumb img { transform: scale(1.05); }
 .item-title {
     font-family: var(--h2-family);
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 800;
     line-height: 1.3;
 }
-.item-title a { color: var(--body-fcolor); text-decoration: none; }
+.item-title a { color: #000; text-decoration: none; transition: 0.2s; }
+.item-title a:hover { color: var(--innovopedia-blue); }
 
 .sidebar-block {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 .sidebar-title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    border-left: 4px solid var(--innovopedia-blue);
 }
 
 @media (max-width: 1199px) {
-    .hero-title { font-size: 42px; }
+    .hero-title { font-size: 48px; }
+    .grid-layout { gap: 40px; }
 }
 @media (max-width: 991px) {
+    .rb-container { padding-left: 20px; padding-right: 20px; }
     .hero-master-grid { grid-template-columns: 1fr; }
     .hero-side-stories { display: none; }
     .grid-layout { grid-template-columns: 1fr; }
-    .hero-title { font-size: 32px; }
-    .hero-wrap { height: 450px; }
+    .hero-title { font-size: 36px; }
+    .hero-wrap { height: 500px; }
+    .item-thumb { width: 120px; height: 80px; }
+    .item-title { font-size: 18px; }
 }
 </style>
 
