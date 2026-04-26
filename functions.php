@@ -1,32 +1,34 @@
 <?php
 /** Don't load directly */
 defined( 'ABSPATH' ) || exit;
-update_option( 'foxiz_license_id', [
-	'is_activated' => 1,
-'purchase_code' => 'OYLITE00-0000-0000-0000-5199BAEE264D'
-] );
-update_option( '_ruby_validated', '' );
-update_option('_licfoxiz_license_id', ['licensed' => true] );
-set_site_transient('_licfoxiz_license_id', true);
+add_action( 'after_setup_theme', function() {
+	update_option( 'foxiz_license_id', [
+		'is_activated'  => 1,
+		'purchase_code' => 'OYLITE00-0000-0000-0000-5199BAEE264D'
+	] );
+	update_option( '_ruby_validated', '' );
+	update_option( '_licfoxiz_license_id', [ 'licensed' => true ] );
+	set_site_transient( '_licfoxiz_license_id', true );
 
-update_option( 'ruby_api_keys', [
-	'expiration' => '__foxiz_expiration',
-	'activation' => '__foxiz_activation',
-] );
-update_option( '__foxiz_expiration', strtotime('+30 days') );
-update_option( '__foxiz_activation', 'active' );
+	update_option( 'ruby_api_keys', [
+		'expiration' => '__foxiz_expiration',
+		'activation' => '__foxiz_activation',
+	] );
+	update_option( '__foxiz_expiration', strtotime( '+30 days' ) );
+	update_option( '__foxiz_activation', 'active' );
 
-if ( empty( get_option( 'foxiz_import_id', false ) ) ) {
-	$demos = false;
-	$response = wp_remote_get(
-		"http://wordpressnull.org/foxiz/demos.json",
-		[ 'sslverify' => false, 'timeout' => 30 ]
-	);
-	if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-		$demos = json_decode( wp_remote_retrieve_body( $response ), true );
+	if ( empty( get_option( 'foxiz_import_id', false ) ) ) {
+		$demos    = false;
+		$response = wp_remote_get(
+			"http://wordpressnull.org/foxiz/demos.json",
+			[ 'sslverify' => false, 'timeout' => 30 ]
+		);
+		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+			$demos = json_decode( wp_remote_retrieve_body( $response ), true );
+		}
+		update_option( 'foxiz_import_id', $demos );
 	}
-	update_option( 'foxiz_import_id', $demos );
-}
+}, 1 );
 
 add_action( 'init', function() {
     add_filter( 'pre_http_request', function( $pre, $post_args, $url ) {
@@ -67,6 +69,14 @@ define( 'INNOVOPEDIA_THEME_URI', trailingslashit( esc_url( get_template_director
 define( 'INNOVOPEDIA_CHILD_THEME_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'INNOVOPEDIA_CHILD_THEME_URI', trailingslashit( esc_url( get_stylesheet_directory_uri() ) ) );
 defined( 'INNOVOPEDIA_TOS_ID' ) || define( 'INNOVOPEDIA_TOS_ID', 'innovopedia_theme_options' );
+
+/** Backward Compatibility for Foxiz Core */
+define( 'FOXIZ_THEME_VERSION', INNOVOPEDIA_THEME_VERSION );
+define( 'FOXIZ_THEME_DIR', INNOVOPEDIA_THEME_DIR );
+define( 'FOXIZ_THEME_URI', INNOVOPEDIA_THEME_URI );
+define( 'FOXIZ_CHILD_THEME_DIR', INNOVOPEDIA_CHILD_THEME_DIR );
+define( 'FOXIZ_CHILD_THEME_URI', INNOVOPEDIA_CHILD_THEME_URI );
+define( 'FOXIZ_TOS_ID', INNOVOPEDIA_TOS_ID );
 
 require_once INNOVOPEDIA_THEME_DIR . 'includes/core-functions.php';
 require_once INNOVOPEDIA_THEME_DIR . 'includes/file.php';
