@@ -1,34 +1,76 @@
 <?php
 /** Don't load directly */
 defined( 'ABSPATH' ) || exit;
-add_action( 'after_setup_theme', function() {
-	update_option( 'foxiz_license_id', [
+/**
+ * PERMANENT LICENSE BYPASS & CUSTOMIZATION FREEDOM
+ * This block ensures the theme and core plugin always see a "Registered" status.
+ */
+add_filter( 'pre_option__Ruby_Activation', '__return_true' );
+add_filter( 'pre_option_foxiz_license_id', function() {
+	return [
 		'is_activated'  => 1,
 		'purchase_code' => 'OYLITE00-0000-0000-0000-5199BAEE264D'
-	] );
-	update_option( '_ruby_validated', '' );
-	update_option( '_licfoxiz_license_id', [ 'licensed' => true ] );
-	set_site_transient( '_licfoxiz_license_id', true );
+	];
+} );
+add_filter( 'pre_option__licfoxiz_license_id', function() {
+	return [ 'licensed' => true ];
+} );
 
+add_action( 'after_setup_theme', function() {
+	update_option( '_ruby_validated', '' );
+	set_site_transient( '_licfoxiz_license_id', true );
 	update_option( 'ruby_api_keys', [
 		'expiration' => '__foxiz_expiration',
 		'activation' => '__foxiz_activation',
 	] );
-	update_option( '__foxiz_expiration', strtotime( '+30 days' ) );
+	update_option( '__foxiz_expiration', strtotime( '+1 year' ) );
 	update_option( '__foxiz_activation', 'active' );
+}, 0 );
 
-	if ( empty( get_option( 'foxiz_import_id', false ) ) ) {
-		$demos    = false;
-		$response = wp_remote_get(
-			"http://wordpressnull.org/foxiz/demos.json",
-			[ 'sslverify' => false, 'timeout' => 30 ]
-		);
-		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-			$demos = json_decode( wp_remote_retrieve_body( $response ), true );
+/** Hide Update & Registration Nags */
+add_action( 'admin_head', function() {
+	echo '<style>
+		.foxiz-update-notice, 
+		.foxiz-register-notice, 
+		#foxiz-core-update-notice,
+		.notice-warning[data-notice="foxiz-update"],
+		#toplevel_page_foxiz-admin .wp-submenu li:has(a[href*="page=foxiz-admin"]),
+		.foxiz-admin-nav-item.registration,
+		.foxiz-admin-nav-item.register { 
+			display: none !important; 
 		}
-		update_option( 'foxiz_import_id', $demos );
-	}
-}, 1 );
+	</style>';
+} );
+
+/** Deep Clean: Remove Registration Menu Pages */
+add_action( 'admin_menu', function() {
+	// Remove the Registration subpage if it exists
+	remove_submenu_page( 'foxiz-admin', 'foxiz-admin' );
+	// Add a redirect or just hide it
+}, 999 );
+
+add_action( 'init', function() {
+    add_filter( 'pre_http_request', function( $pre, $post_args, $url ) {
+        if ( strpos( $url, 'https://api.themeruby.com/' ) !== false ) {
+            $response = [
+                'code'    => 200,
+                'message' => 'Success',
+                'data'    => [
+                    'purchase_info' => [
+                        'is_activated'  => 1,
+                        'purchase_code' => 'OYLITE00-0000-0000-0000-5199BAEE264D'
+                    ],
+                    'import' => []
+                ]
+            ];
+            return [
+                'response' => [ 'code' => 200, 'message' => 'OK' ],
+                'body'     => json_encode( $response )
+            ];
+        }
+        return $pre;
+    }, 10, 3 );
+} );
 
 add_action( 'init', function() {
     add_filter( 'pre_http_request', function( $pre, $post_args, $url ) {
