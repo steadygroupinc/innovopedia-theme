@@ -52,44 +52,38 @@ add_action( 'admin_menu', function() {
 add_action( 'init', function() {
     add_filter( 'pre_http_request', function( $pre, $post_args, $url ) {
         if ( strpos( $url, 'https://api.themeruby.com/' ) !== false ) {
-            $response = [
-                'code'    => 200,
-                'message' => 'Success',
-                'data'    => [
-                    'purchase_info' => [
-                        'is_activated'  => 1,
-                        'purchase_code' => 'OYLITE00-0000-0000-0000-5199BAEE264D'
-                    ],
-                    'import' => []
-                ]
-            ];
-            return [
-                'response' => [ 'code' => 200, 'message' => 'OK' ],
-                'body'     => json_encode( $response )
-            ];
-        }
-        return $pre;
-    }, 10, 3 );
-} );
-
-add_action( 'init', function() {
-    add_filter( 'pre_http_request', function( $pre, $post_args, $url ) {
-        if ( strpos( $url, 'https://api.themeruby.com/' ) !== false ) {
             $query_args = [];
             parse_str( parse_url( $url, PHP_URL_QUERY ), $query_args );
             $url_path = parse_url( $url, PHP_URL_PATH );
 
-            if ( ( $url_path == '/wp-json/market/validate' ) && isset( $query_args['action'] ) ) {
-                if ( $query_args['action'] == 'demos' ) {
-                    $response = wp_remote_get(
-                        "http://wordpressnull.org/foxiz/demos.json",
-                        [ 'sslverify' => false, 'timeout' => 60 ]
-                    );
-                    if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-                        return $response;
-                    }
+            // Handle Registration Mock
+            if ( ( $url_path == '/wp-json/market/validate' ) || ( $url_path == '/market/cvalid' ) ) {
+                $response = [
+                    'code'    => 200,
+                    'message' => 'Success',
+                    'data'    => [
+                        'purchase_info' => [
+                            'is_activated'  => 1,
+                            'purchase_code' => 'OYLITE00-0000-0000-0000-5199BAEE264D'
+                        ],
+                        'import' => []
+                    ]
+                ];
+                return [
+                    'response' => [ 'code' => 200, 'message' => 'OK' ],
+                    'body'     => json_encode( $response )
+                ];
+            }
+
+            // Handle Demos & Imports Mock
+            if ( ( $url_path == '/wp-json/market/validate' ) && isset( $query_args['action'] ) && $query_args['action'] == 'demos' ) {
+                $response = wp_remote_get(
+                    "http://wordpressnull.org/foxiz/demos.json",
+                    [ 'sslverify' => false, 'timeout' => 60 ]
+                );
+                if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+                    return $response;
                 }
-                return [ 'response' => [ 'code' => 403, 'message' => 'Bad request.' ] ];
             } elseif ( ( $url_path == '/import/' ) && isset( $query_args['demo'] ) && isset( $query_args['data'] ) ) {
                 $ext = in_array( $query_args['data'], ['content', 'pages'] ) ? '.xml' : '.json';
                 $response = wp_remote_get(
@@ -99,7 +93,6 @@ add_action( 'init', function() {
                 if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
                     return $response;
                 }
-                return [ 'response' => [ 'code' => 403, 'message' => 'Bad request.' ] ];
             }
         }
         return $pre;
@@ -113,12 +106,12 @@ define( 'INNOVOPEDIA_CHILD_THEME_URI', trailingslashit( esc_url( get_stylesheet_
 defined( 'INNOVOPEDIA_TOS_ID' ) || define( 'INNOVOPEDIA_TOS_ID', 'innovopedia_theme_options' );
 
 /** Backward Compatibility for Foxiz Core */
-define( 'FOXIZ_THEME_VERSION', INNOVOPEDIA_THEME_VERSION );
-define( 'FOXIZ_THEME_DIR', INNOVOPEDIA_THEME_DIR );
-define( 'FOXIZ_THEME_URI', INNOVOPEDIA_THEME_URI );
-define( 'FOXIZ_CHILD_THEME_DIR', INNOVOPEDIA_CHILD_THEME_DIR );
-define( 'FOXIZ_CHILD_THEME_URI', INNOVOPEDIA_CHILD_THEME_URI );
-define( 'FOXIZ_TOS_ID', INNOVOPEDIA_TOS_ID );
+defined( 'FOXIZ_THEME_VERSION' ) || define( 'FOXIZ_THEME_VERSION', INNOVOPEDIA_THEME_VERSION );
+defined( 'FOXIZ_THEME_DIR' ) || define( 'FOXIZ_THEME_DIR', INNOVOPEDIA_THEME_DIR );
+defined( 'FOXIZ_THEME_URI' ) || define( 'FOXIZ_THEME_URI', INNOVOPEDIA_THEME_URI );
+defined( 'FOXIZ_CHILD_THEME_DIR' ) || define( 'FOXIZ_CHILD_THEME_DIR', INNOVOPEDIA_CHILD_THEME_DIR );
+defined( 'FOXIZ_CHILD_THEME_URI' ) || define( 'FOXIZ_CHILD_THEME_URI', INNOVOPEDIA_CHILD_THEME_URI );
+defined( 'FOXIZ_TOS_ID' ) || define( 'FOXIZ_TOS_ID', INNOVOPEDIA_TOS_ID );
 
 require_once INNOVOPEDIA_THEME_DIR . 'includes/core-functions.php';
 require_once INNOVOPEDIA_THEME_DIR . 'includes/file.php';
