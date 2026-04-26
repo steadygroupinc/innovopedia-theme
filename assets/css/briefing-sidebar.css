@@ -1,0 +1,263 @@
+/* INNOVOPEDIA BRIEFING SIDEBAR STYLES - BRANDED */
+
+.briefing-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    background: var(--solid-white);
+    z-index: 10000;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: var(--body-family);
+    color: var(--body-fcolor);
+}
+
+.briefing-sidebar.active {
+    right: 0;
+}
+
+.briefing-sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-logo-icon {
+    color: var(--g-color);
+    font-weight: bold;
+    letter-spacing: -2px;
+    font-size: 24px;
+}
+
+.sidebar-title {
+    font-family: var(--h1-family);
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    color: var(--body-fcolor);
+}
+
+.ai-generated-badge {
+    font-size: 10px;
+    font-weight: 700;
+    background: var(--flex-gray-7);
+    color: var(--meta-fcolor);
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--meta-fcolor);
+}
+
+.briefing-stories {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.briefing-story {
+    margin-bottom: 40px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.briefing-story.active {
+    opacity: 1;
+}
+
+.story-meta {
+    margin-bottom: 15px;
+}
+
+.story-title {
+    font-family: var(--h2-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--body-fcolor);
+}
+
+.story-summary {
+    color: var(--body-fcolor);
+    line-height: 1.6;
+}
+
+.story-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--round-7);
+    margin-bottom: 15px;
+}
+
+.dive-deeper {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--g-color);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: var(--cat-transform);
+}
+
+/* Sidebar Footer & Audio Controls */
+.sidebar-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--flex-gray-15);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--g-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 10px var(--g-color-90);
+}
+
+.progress-segments {
+    display: flex;
+    gap: 5px;
+    flex: 1;
+}
+
+.progress-segment {
+    height: 4px;
+    background: var(--flex-gray-15);
+    flex: 1;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--g-color);
+    width: 0%;
+}
+
+.briefing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 9999;
+}
+
+/* --- SHORTCODE TRIGGER STYLES --- */
+.innovopedia-briefing-trigger-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.briefing-greeting {
+    font-family: var(--h1-family);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--body-fcolor);
+}
+
+.briefing-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--g-color);
+    padding: 6px 16px 6px 8px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--btn-family);
+    font-weight: 700;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.briefing-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    color: #fff;
+}
+
+.badge-icon {
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    color: var(--g-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 10px;
+}
+
+.briefing-sidebar.active + .briefing-overlay {
+    display: block;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .briefing-sidebar {
+    background: #111;
+    color: #fff;
+}
+
+[data-theme="dark"] .sidebar-logo-icon {
+    color: #fff;
+}
+
+[data-theme="dark"] .sidebar-footer {
+    border-top-color: #333;
+}
+
+[data-theme="dark"] .play-btn {
+    background: #fff;
+    color: #000;
+}
+
+[data-theme="dark"] .progress-segment {
+    background: #333;
+}

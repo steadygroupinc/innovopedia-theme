@@ -1,0 +1,585 @@
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.w-img-preview {
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.w-img-preview img {
+    display: block;
+    width: 100%;
+}
+
+input.w-upload-img {
+    display: inline-block;
+    width: 74%;
+    min-height: 40px;
+    border: 1px dashed #ddd !important;
+    box-shadow: none !important;
+}
+
+input.w-clear-img {
+    display: inline-block;
+    width: 25%;
+    min-height: 40px;
+    border: 1px dashed #ddd !important;
+    box-shadow: none !important;
+}
+
+input.w-clear-img:after {
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+.ruby-edit-template-wrapper {
+    display: block;
+}
+
+.ruby-edit-template-wrapper > * {
+    margin-top: 12px;
+}
+
+.ruby-edit-template-notice,
+.ruby-edit-template-notice code {
+    font-family: monospace;
+    font-size: 10px;
+}
+
+button.rb-upload-avatar {
+    display: inline-flex;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    background: #68e58d;
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+a.ruby-edit-template-btn {
+    display: inline-flex;
+    margin-top: 10px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    background: #68e58d;
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.rb-menu-settings a.ruby-edit-template-btn {
+    margin-top: 0;
+    padding: 7px 15px;
+    border-radius: 3px;
+}
+
+button.rb-upload-avatar:hover,
+a.ruby-edit-template-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+[id$='widget-mc-__i__'] .widget-top .widget-title h3,
+[id$='instagram-__i__'] .widget-top .widget-title h3 {
+    background-color: #4ea9fe;
+    color: #fff;
+}
+
+[id$='widget-template-__i__'] .widget-top .widget-title h3 {
+    background-color: #8040ff;
+    color: #fff;
+}
+
+[id$='youtube-__i__'] .widget-top .widget-title h3,
+[id$='weather-__i__'] .widget-top .widget-title h3,
+[id$='twitter-__i__'] .widget-top .widget-title h3,
+[id$='social-icon-__i__'] .widget-top .widget-title h3,
+[id$='follower-__i__'] .widget-top .widget-title h3,
+[id$='flickr-__i__'] .widget-top .widget-title h3,
+[id$='widget-banner-__i__'] .widget-top .widget-title h3,
+[id$='ad-script-__i__'] .widget-top .widget-title h3,
+[id$='ad-image-__i__'] .widget-top .widget-title h3,
+[id$='address-__i__'] .widget-top .widget-title h3,
+[id$='facebook-__i__'] .widget-top .widget-title h3,
+[id$='post-__i__'] .widget-top .widget-title h3,
+[id$='sb-instagram-__i__'] .widget-top .widget-title h3 {
+    background-color: #4792a8;
+    color: #fff;
+}
+
+#foxiz_sidebar_fw_footer .sidebar-name h2 {
+    color: #4ea9fe;
+}
+
+.menu-item-settings:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.field-ruby-mega.description-wide input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.field-ruby-mega-info {
+    display: block;
+    margin: 20px 20px 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff7d3;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.rtl .field-ruby-mega-info {
+    margin: 20px 0 10px 20px;
+}
+
+.rb-w-input {
+    display: flex;
+    gap: 7px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+}
+
+.rb-w-input h4 {
+    padding-left: 7px;
+    font-size: 12px;
+    line-height: 1;
+    border-left: 10px solid #ffc107;
+}
+
+.rb-w-input *,
+.rb-form-2cols * {
+    margin: 0 !important;
+}
+
+.rb-w-input p {
+    color: #777;
+}
+
+.rb-w-input label {
+    display: none;
+}
+
+/** menu */
+.rb-menu-settings {
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.rb-fw-input {
+    width: 100%;
+    max-width: 100%;
+}
+
+.rb-menu-el label {
+    padding-right: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.rb-mega-title {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    padding-top: 12px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+
+.rb-menu-el ::placeholder {
+    color: #aaa;
+}
+
+.rb-menu-el {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.rb-menu-el textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.rb-menu-elements {
+    display: block;
+}
+
+.rb-menu-el input,
+.rb-menu-el select {
+    flex-grow: 1;
+    max-width: 210px;
+    margin-left: auto;
+}
+
+.rb-menu-el .wp-picker-container {
+    flex-grow: 1;
+    max-width: 210px;
+    margin-left: auto;
+}
+
+html[dir='rtl'] .rb-menu-el input,
+html[dir='rtl'] .rb-menu-el select,
+html[dir='rtl'] .rb-menu-el .wp-picker-container {
+    margin-right: auto;
+    margin-left: 0;
+    text-align: left;
+}
+
+.rb-menu-el .wp-picker-container input.wp-color-picker {
+    width: 100px;
+}
+
+.rb-menu-description {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #777;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.rb-mega-info {
+    display: inline-flex;
+    margin-left: 10px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background-color: #5fc08b;
+    color: #fff;
+    font-size: 9px;
+    line-height: 1;
+}
+
+.rb-mega-info.label-columns {
+    background-color: #8e82e5;
+}
+
+.rb-menu-item-description {
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+}
+
+.rb-menu-settings textarea {
+    font-size: 12px;
+}
+
+/** widget section colors */
+#foxiz_entry_top .sidebar-name h2,
+#foxiz_entry_bottom .sidebar-name h2 {
+    color: #93a340;
+}
+
+#foxiz_sidebar_more .sidebar-name h2,
+#foxiz_sidebar_default .sidebar-name h2,
+#foxiz_sidebar_footer_1 .sidebar-name h2,
+#foxiz_sidebar_footer_2 .sidebar-name h2,
+#foxiz_sidebar_footer_3 .sidebar-name h2,
+#foxiz_sidebar_footer_4 .sidebar-name h2,
+#foxiz_sidebar_footer_5 .sidebar-name h2 {
+    color: #4792a8;
+}
+
+#foxiz_sidebar_topsite .sidebar-name h2 {
+    color: #668839;
+}
+
+#ui-datepicker-div {
+    display: none;
+}
+
+.rwtm-uploaded {
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.rwtm-files {
+    padding-left: 20px;
+}
+
+.rwtm-uploaded a {
+    text-decoration: none !important;
+}
+
+.rwtm-files .rwtm-delete-file {
+    margin-left: 10px;
+    padding: 5px;
+    background: #000;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.rwtm-files .rwtm-delete-file:hover {
+    background-color: #ff4b4b;
+}
+
+.rwtm-files a:not(.rwtm-delete-file) {
+    font-weight: bold;
+}
+
+.rwtm-images li {
+    position: relative;
+    width: 100px;
+    height: 70px;
+    margin: 0 10px 10px 0;
+    border: 3px solid #9ed1bc;
+    text-align: center;
+    float: left;
+}
+
+.rwtm-images img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.rwtm-images a {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.rwtm-images a:hover {
+    background-color: #ff4b4b;
+}
+
+.rb-wheading {
+    padding: 10px 0 5px;
+}
+
+.rb-wheading h3 {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.rb-form-2cols {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.rb-form-2cols .rb-w-input {
+    width: calc(50% - 10px);
+}
+
+.rb-form-2cols .rb-wheading {
+    width: 100%;
+}
+
+div.rb-setting-warning {
+    padding: 20px 30px 30px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    border-bottom: 2px solid #ff3800;
+}
+
+div.rb-setting-warning.is-small {
+    padding: 10px 20px;
+}
+
+.rb-setting-warning-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #ff3800;
+    font-size: 20px;
+}
+
+.rb-setting-warning-title i {
+    margin-right: 7px;
+}
+
+.rb-setting-warning li:before {
+    content: '';
+    display: inline-flex;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background: #ff3800;
+}
+
+.rb-setting-warning li:not(:last-child) {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #8882;
+}
+
+p.rb-setting-warning-desc {
+    max-width: 1200px;
+    font-size: 14px;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.rb-profile-settings {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    box-sizing: border-box;
+    max-width: 1000px;
+    margin-bottom: 35px;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.rb-profile-settings thead {
+    border-bottom: 2px solid;
+    margin-bottom: 15px;
+}
+
+.rb-profile-settings thead th {
+    font-size: 18px;
+}
+
+.rb-avatar-preview-outer {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+}
+
+.rb-remove-avatar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background: #f00;
+    color: #fff;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.rb-remove-avatar:hover {
+    background: #000;
+}
+
+.avatar-preview img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.rb-profile-settings th,
+.rb-profile-settings td {
+    padding: 10px;
+}
+
+.rb-profile-settings .description {
+    font-size: 13px;
+}
+
+.rb-profile-settings textarea {
+    margin-bottom: 0 !important;
+}
+
+.rb-profile-settings select {
+    min-width: 260px;
+}
+
+.rb-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/** GUT SETTING PANEL */
+.responsive-settings {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-flow: row nowrap;
+}
+
+.responsive-settings label,
+.responsive-settings span:not(.dashicon) {
+    display: flex;
+    margin-bottom: 5px;
+    font-size: 10px;
+    line-height: 14px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.responsive-settings .dashicon {
+    height: 14px;
+    font-size: 14px;
+}
+
+.responsive-settings > * {
+    margin-bottom: 0 !important;
+}
+
+.rb-tip-control,
+.res-padding-control > *:not(:last-child) {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.repeat-item {
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #8882;
+}
+
+.rb-control-label {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.rb-control-label span {
+    position: relative;
+    display: inline-flex;
+    margin-left: 5px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #2c3eff;
+    color: #fff;
+    line-height: 1;
+}

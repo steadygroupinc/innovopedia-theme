@@ -1,0 +1,203 @@
+/* INNOVOPEDIA GLOBAL HEADER - BI INSPIRED */
+
+.innovopedia-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: 'Inter', sans-serif;
+}
+
+/* TOP ROW */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+.header-logo a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+.header-logo a span {
+    color: var(--g-color); /* The brand color for the .COM or the dot */
+}
+.header-top-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.btn-subscribe {
+    color: #0033ff;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-newsletters {
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+}
+.hamburger-trigger {
+    width: 45px;
+    height: 45px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+.hamburger-trigger:hover { transform: scale(1.05); }
+
+/* SUB HEADER */
+.header-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    position: relative;
+}
+.nav-categories {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+.nav-categories li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 5px 0;
+}
+.nav-categories li::after {
+    content: ":";
+    margin-left: 20px;
+    color: #ccc;
+    font-weight: 300;
+}
+.nav-categories li:last-child::after { content: none; }
+
+.sub-search-trigger {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* SIDE PANEL */
+.innovopedia-side-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100vh;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.innovopedia-side-panel.is-active { right: 0; }
+
+.side-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.side-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+}
+.side-close {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.side-search-wrap {
+    margin-bottom: 30px;
+}
+.side-search-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.side-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+.side-nav li {
+    padding: 15px 0;
+    border-bottom: 1px dotted #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.side-nav li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.side-footer {
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+.side-socials {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+.side-socials a { color: #000; font-size: 18px; }
+
+/* OVERLAY */
+.side-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.side-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
