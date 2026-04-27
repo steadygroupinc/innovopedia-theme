@@ -40,6 +40,7 @@ if ( ! function_exists( 'foxiz_config_header_style' ) ) {
 			'3' => esc_html__( 'Layout 3 (Center Menu)', 'foxiz' ),
 			'4' => esc_html__( 'Layout 4 (Border)', 'foxiz' ),
 			'5' => esc_html__( 'Layout 5 (Center Logo)', 'foxiz' ),
+			'bi' => esc_html__( 'Business Insider Style', 'foxiz' ),
 		];
 
 		if ( $transparent ) {

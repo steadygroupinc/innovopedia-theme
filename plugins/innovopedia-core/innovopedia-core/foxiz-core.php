@@ -7,7 +7,7 @@
  * Version:        2.7.4
  * Requires at least: 6.0
  * Requires PHP:   7.4
- * Text Domain:    innovopedia-core
+ * Text Domain:    foxiz-core
  * Domain Path:    /languages/
  * Author:         Innovopedia Team
  *
@@ -20,8 +20,10 @@ defined( 'ABSPATH' ) || exit;
 define( 'INNOVOPEDIA_CORE_VERSION', '2.7.4' );
 define( 'INNOVOPEDIA_CORE_URL', plugin_dir_url( __FILE__ ) );
 define( 'INNOVOPEDIA_CORE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'FOXIZ_CORE_PATH', INNOVOPEDIA_CORE_PATH );
 define( 'INNOVOPEDIA_REL_PATH', dirname( plugin_basename( __FILE__ ) ) );
 defined( 'INNOVOPEDIA_TOS_ID' ) || define( 'INNOVOPEDIA_TOS_ID', 'innovopedia_theme_options' );
+defined( 'FOXIZ_TOS_ID' ) || define( 'FOXIZ_TOS_ID', INNOVOPEDIA_TOS_ID );
 defined( 'RB_META_ID' ) || define( 'RB_META_ID', 'rb_global_meta' );
 
 /** LOAD FILES */
@@ -45,18 +47,18 @@ if ( ! class_exists( 'INNOVOPEDIA_CORE', false ) ) {
 
 			self::$instance = $this;
 			register_activation_hook( __FILE__, [ $this, 'activation' ] );
-			add_action( 'plugins_loaded', [ $this, 'translation' ], 100 );
+			add_action( 'init', [ $this, 'translation' ], -10 );
 			add_action( 'wp_enqueue_scripts', [ $this, 'core_enqueue' ], 1 );
 			add_action( 'widgets_init', [ $this, 'register_widgets' ] );
 		}
 
 		public function translation() {
 
-			$loaded = load_plugin_textdomain( 'innovopedia-core', false, INNOVOPEDIA_CORE_PATH . 'languages/' );
+			$loaded = load_plugin_textdomain( 'foxiz-core', false, INNOVOPEDIA_CORE_PATH . 'languages/' );
 			if ( ! $loaded ) {
-				$locale = apply_filters( 'plugin_locale', get_locale(), 'innovopedia-core' );
-				$mofile = INNOVOPEDIA_CORE_PATH . 'languages/innovopedia-core-' . $locale . '.mo';
-				load_textdomain( 'innovopedia-core', $mofile );
+				$locale = apply_filters( 'plugin_locale', get_locale(), 'foxiz-core' );
+				$mofile = INNOVOPEDIA_CORE_PATH . 'languages/foxiz-core-' . $locale . '.mo';
+				load_textdomain( 'foxiz-core', $mofile );
 			}
 		}
 

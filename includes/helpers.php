@@ -4,6 +4,18 @@
 use Elementor\Core\Files\File_Types\Svg;
 
 defined( 'ABSPATH' ) || exit;
+if ( ! function_exists( 'innovopedia_get_greeting' ) ) {
+	function innovopedia_get_greeting() {
+		$hour = date( 'H' );
+		if ( $hour < 12 ) {
+			return esc_html__( 'Good morning!', 'foxiz' );
+		} elseif ( $hour < 17 ) {
+			return esc_html__( 'Good afternoon!', 'foxiz' );
+		} else {
+			return esc_html__( 'Good evening!', 'foxiz' );
+		}
+	}
+}
 
 if ( ! function_exists( 'foxiz_get_user_socials' ) ) {
 	function foxiz_get_user_socials( $author_id = '' ) {

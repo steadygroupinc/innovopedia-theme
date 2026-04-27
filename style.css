@@ -130,3 +130,266 @@ License URI:    http://www.gnu.org/licenses/gpl-2.0.html
 [data-theme="dark"] .briefing-footer {
     border-top-color: #333;
 }
+
+/* --- Business Insider Style Header --- */
+.header-bi {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-sec.bi-style {
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-sec.bi-style .logo-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+}
+
+.bi-utility-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bi-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.bi-subscribe {
+    color: #0044ff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bi-subscribe i {
+    font-size: 12px;
+    transform: rotate(-45deg);
+}
+
+.bi-nav-style {
+    background: #fff;
+}
+
+.bi-nav-style .navbar-inner {
+    border-bottom: none;
+}
+
+.bi-nav-style .main-menu > li > a {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #111;
+    padding: 15px 20px !important;
+    position: relative;
+}
+
+/* Active Indicator Underline */
+.bi-nav-style .main-menu > li:hover > a:after,
+.bi-nav-style .main-menu > li.current-menu-item > a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: #0044ff;
+}
+
+/* Sub-Menu Styles */
+.bi-nav-style .sub-menu {
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 15px 0 !important;
+    min-width: 220px;
+}
+
+.bi-nav-style .sub-menu li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #444;
+    padding: 10px 25px !important;
+    transition: all 0.2s;
+}
+
+.bi-nav-style .sub-menu li a:hover {
+    color: #0044ff;
+    background: #f8f9fa;
+}
+
+/* Dot Separators */
+.bi-nav-style .main-menu > li:not(:last-child):after {
+    content: "•";
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 12px;
+}
+
+.bi-greeting-bar {
+    background: #fdfdfd;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.bi-greeting-inner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bi-greeting-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000;
+}
+
+.bi-ticker-wrap {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 2px 0;
+    min-height: 46px;
+}
+
+[data-theme="dark"] .bi-ticker-wrap {
+    background: #000;
+    border-color: #222;
+}
+
+/* Ensure TradingView widget respects dark mode via inversion for the specific widget if needed */
+/* Note: Since we use isTransparent, the text color might need a slight adjustment */
+[data-theme="dark"] .bi-ticker-wrap iframe {
+    filter: invert(0.9) hue-rotate(180deg);
+}
+
+.bi-briefing-btn {
+    background: #e6eeff;
+    color: #0044ff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.bi-briefing-btn i {
+    font-size: 16px;
+}
+
+/* Dark Mode for BI Header */
+[data-theme="dark"] .header-bi,
+[data-theme="dark"] .logo-sec.bi-style,
+[data-theme="dark"] .bi-nav-style,
+[data-theme="dark"] .bi-nav-style .sub-menu,
+[data-theme="dark"] .bi-greeting-bar {
+    background: #111;
+    border-color: #222;
+}
+
+[data-theme="dark"] .logo-sec.bi-style .logo-title,
+[data-theme="dark"] .bi-link,
+[data-theme="dark"] .bi-nav-style .main-menu > li > a,
+[data-theme="dark"] .bi-nav-style .sub-menu li a,
+[data-theme="dark"] .bi-greeting-text {
+    color: #fff;
+}
+
+[data-theme="dark"] .bi-nav-style .sub-menu li a:hover {
+    background: #222;
+    color: #4d82ff;
+}
+
+[data-theme="dark"] .bi-subscribe {
+    color: #4d82ff;
+}
+
+/* --- FORCED BUSINESS INSIDER PALETTE (Overrides old Pink/Purple) --- */
+
+:root {
+    --bi-blue: #0044ff;
+    --bi-light-blue: #e6eeff;
+    --bi-black: #000000;
+}
+
+/* Fix Greeting Bar & Briefing Button */
+.bi-greeting-bar {
+    background: #fdfdfd !important;
+}
+
+.bi-greeting-text {
+    color: var(--bi-black) !important;
+}
+
+.bi-briefing-btn {
+    background: var(--bi-light-blue) !important;
+    color: var(--bi-blue) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.bi-briefing-btn i {
+    color: var(--bi-blue) !important;
+}
+
+/* Fix Mobile Header Alignment */
+@media (max-width: 1024px) {
+    /* Hide ALL horizontal category scrolls on mobile */
+    .bi-nav-style, 
+    .nav-horizontal,
+    .mobile-qview { 
+        display: none !important; 
+    }
+
+    .logo-sec.bi-style {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 0 !important;
+    }
+
+    /* Ensure Logo is Black and clean */
+    .logo-sec.bi-style .logo-title,
+    .logo-sec.bi-style .logo-title a {
+        color: var(--bi-black) !important;
+        font-size: 28px !important;
+    }
+
+    /* Professional Hamburger Icon */
+    .bi-burger-wrap .burger-icon span {
+        background-color: var(--bi-black) !important;
+    }
+}
+
+/* Ensure Subscribe Link is BI Blue */
+.bi-link.bi-subscribe {
+    color: var(--bi-blue) !important;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] :root {
+    --bi-black: #ffffff;
+    --bi-blue: #4d82ff;
+    --bi-light-blue: #222222;
+}
+

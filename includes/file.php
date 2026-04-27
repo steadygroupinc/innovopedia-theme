@@ -52,6 +52,7 @@ require_once foxiz_get_file_path( 'templates/page.php' );
 
 /** HEADER */
 require_once foxiz_get_file_path( 'templates/header/layouts.php' );
+require_once foxiz_get_file_path( 'templates/header/header-bi.php' );
 require_once foxiz_get_file_path( 'templates/header/transparent.php' );
 
 /** SINGLE */

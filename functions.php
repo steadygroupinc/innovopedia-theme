@@ -1,6 +1,16 @@
 <?php
 /** Don't load directly */
 defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'FOXIZ_CORE_PATH' ) ) {
+	define( 'FOXIZ_CORE_PATH', WP_PLUGIN_DIR . '/innovopedia-core/foxiz-core/' );
+}
+
+/** NOTICE SHIELD: Hide technical warnings from visitors */
+if ( ! is_admin() ) {
+    error_reporting(0);
+    @ini_set('display_errors', 0);
+}
+
 /**
  * PERMANENT LICENSE BYPASS & CUSTOMIZATION FREEDOM
  * This block ensures the theme and core plugin always see a "Registered" status.

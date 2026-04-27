@@ -26,8 +26,8 @@ if ( ! class_exists( 'Foxiz_Theme_Activation' ) ) {
 
 			self::$core_plugin = [
 				'slug'     => 'foxiz-core',
-				'plugin'   => 'foxiz-core/foxiz-core.php',
-				'package'  => FOXIZ_THEME_DIR . 'plugins/foxiz-core.zip',
+				'plugin'   => 'innovopedia-core/foxiz-core/foxiz-core.php',
+				'package'  => FOXIZ_THEME_DIR . 'plugins/innovopedia-core.zip',
 				'redirect' => admin_url( 'admin.php?page=foxiz-admin' ),
 			];
 		}
